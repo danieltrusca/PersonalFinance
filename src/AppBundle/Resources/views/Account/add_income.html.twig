@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block title %}AppBundle:Income:newIncome{% endblock %}
+
+{% block body %}
+    <h1>Welcome to the Income page</h1>
+    <h2>Here you can add incomes to the account: {{account.accountName}}</h2>
+
+    {{ form_start(form_income,{'action':path('addIncome',{'id':account.id})}) }}
+    {{ form_widget(form_income) }}
+    {{ form_end(form_income) }}
+
+{% endblock %}

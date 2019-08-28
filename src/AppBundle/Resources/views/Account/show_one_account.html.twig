@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+{% block title %}Just one account details{% endblock %}
+{% block body %}
+    <h1>Details about: {{ account.accountName }}</h1>
+    <h2>Value:  {{ account.accountValue }}</h2>
+    <h2>Date: {{ account.accountDate }}</h2>
+    <a href="/Account/{{ account.id }}/updateAccount">modify account details</a>
+    <hr>
+    <h5><a href="/{{ account.id }}/addNewIncome">add a new income</a></h5>
+    <i>All incomes of this account:</i>
+    <ul>
+        {% for income in incomes %}
+            <li>
+                <h3>Income: {{ income.IncomeName }}</h3>
+                <h3>Value: {{ income.IncomeValue }} </h3>
+                <h3>Date: {{ income.IncomeDate }} </h3>
+                <a href="/Income/{{ income.id }}/modify">edit income</a>|||
+                <a href="/{{ account.id }}/{{ income.id }}/deleteIncome">Delete Income</a>
+
+            </li>
+        {% endfor %}
+    </ul>
+
+
+
+    <h2><a href="/Account/showAllAccount">Go back to Account List</a></h2>
+{% endblock %}
+
+
+

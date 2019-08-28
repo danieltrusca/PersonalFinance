@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}AppBundle:Account:showAllAccount{% endblock %}
+
+{% block body %}
+<h1>List of accounts :</h1>
+    <ul>
+        {% for account in accounts %}
+            <li>
+                <a href="/Account/{{ account.id }}">{{ account.AccountName }}</a>|||
+                <a href="/Account/{{ account.id }}/delete">(Delete Account|||</a>
+                <a href="/Account/{{ account.id}}/updateAccount">Edit Account)</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <h2><a href="/Account/addNewAccount">Add a new Account</a></h2>
+
+{% endblock %}

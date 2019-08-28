@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Add a new account{% endblock %}
+
+{% block body %}
+<h1>Add a new account</h1>
+    {{ form_start(form_account,{'action':path('create_account')}) }}
+    {{ form_widget(form_account) }}
+    {{ form_end(form_account) }}
+{% endblock %}
