@@ -7,7 +7,18 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+    <div style="width:100%; background-color: #8959A8;">
+        {% if is_granted('ROLE_USER') %}
+            <h3 align="left">Welcome {{ app.user.username }} </h3>
+            <h3 align="right"><a href="{{ path('fos_user_security_logout') }}">Logout</a></h3>
+        {% else %}
+            <h3 align="right"><a href="{{ path('fos_user_security_login') }}">Login</a></h3>
+        {% endif %}
+
+    </div>
+        {% block body %}
+
+        {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
