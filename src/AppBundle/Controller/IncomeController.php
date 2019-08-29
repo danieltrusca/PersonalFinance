@@ -26,7 +26,15 @@ class IncomeController extends Controller
         $account = $em->getRepository('AppBundle:Account')->find($id);
         if($form->isSubmitted() && $form->isValid()){
             $income = $form->getData();
+
+            $incomeDeAdaugat=$form->get('incomeValue')->getData();
+            //var_dump($account->getAccountValue());
+            //var_dump( $incomeDeAdaugat);
+            //var_dump($account->getAccountValue()+$incomeDeAdaugat);
+            $account->setAccountValue($account->getAccountValue()+$incomeDeAdaugat);
+
             $income->setAccount($account);
+            $em->persist($account);
             $em->persist($income);
             $em->flush();
 //            return new Response("Address is successfully added");
